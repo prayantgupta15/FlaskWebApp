@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title%}URL Shortener{% endblock %}
+
+{% block main %}
+<h1>URL Shortner</h1>
+
+<form action="your-url"  method="POST">
+    <label>
+        Website URL
+        <input type="url" name="url" value="" required>
+    </label>
+    <br>
+    <label>
+        Short Name
+        <input type="text" name="code" value="" required>
+        <br>
+    </label>
+    <input type="submit" value="Shorten">
+    </label>
+</form>
+
+<br>
+<br>
+
+<form action="your-url"  method="POST" enctype="multipart/form-data">
+    <label>
+        Upload File
+        <input type="file" name="file" value="" required>
+    </label>
+    <br>
+    <label>
+        Short Name
+        <input type="text" name="code" value="" required>
+        <br>
+    </label>
+    <input type="submit" value="Shorten">
+    </label>
+</form>
+
+{% if codes %}
+<h2>Codes you have saved:</h2>
+<ol>
+    {% for i in codes %}
+    <a href = "{{ url_for('redirect_to_url',code = i) }}">
+    <li>{{ i }}</li>
+</a>
+    {% endfor %}
+</ol>
+{% endif %}
+{% endblock %}

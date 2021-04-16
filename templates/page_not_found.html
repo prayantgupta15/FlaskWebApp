@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+404 Not found
+{% endblock %}
+
+{% block main %}
+<h1>Oops</h1>
+<p>Page Not found. :)</p>
+<p>
+    <!-- <a href="/"> -->
+    <a href=" {{url_for('home') }}" >
+    Home
+    </a>
+</p>
+{% endblock %}
